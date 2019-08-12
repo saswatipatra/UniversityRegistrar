@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@using System.Linq; 
+@using Registrar.Models;
+@model List<Registrar.Models.Student>;
+
+<h1>Students By Name</h1>
+
+<ul>
+  @foreach(Student student in Model)
+  {
+    
+      <li>@Html.ActionLink($"{student.Name}","Details", new { id = student.StudentId })</li>
+       <p>@Html.DisplayNameFor(model => student.EnrollmentDate): @Html.DisplayFor(model => student.EnrollmentDate)</p> 
+
+  }
+</ul>
+
+<p>@Html.ActionLink("Add new Student", "Create")</p>
