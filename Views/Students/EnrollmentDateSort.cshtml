@@ -13,7 +13,7 @@
   {
     
       <li>@Html.ActionLink($"{student.Name}","Details", new { id = student.StudentId })</li>
-       <p>@Html.DisplayNameFor(model => student.EnrollmentDate): @Html.DisplayFor(model => student.EnrollmentDate)</p> 
+       <p> EnrollmentDate: @student.EnrollmentDate.ToString("d")</p> 
 
   }
 </ul>
