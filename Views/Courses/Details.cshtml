@@ -2,7 +2,13 @@
   Layout = "_Layout";
 }
 
+@{
+    ViewBag.Title = "Course Details";
+    var photoPath = "~/images/" + (Model.Image ?? "noimage.jpg");
+}
+
 @model Registrar.Models.Course;
+@using Registrar.ViewModels;
 
 <h2>Course Details</h2>
 <hr />
@@ -19,10 +25,29 @@ else
   @foreach(var join in Model.Students)
   {
     <li>@join.Student.Name</li>
+    <div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.Name</h1>
+            </div>
+
+            <div class="card-body text-center">
+                <img class="card-img-top" src="@photoPath" asp-append-version="true" />
+
+                <h4>Course ID : @Model.CourseId</h4>
+            </div>
+             </div>
+       </div>
+       </div>
   }
   </ul>
 }
 
-<p>@Html.ActionLink("Back to courses", "Index")</p>
+            <div class="card-footer text-center">
+               <p>@Html.ActionLink("Back to courses", "Index")</p>
 <p>@Html.ActionLink("Edit Course", "Edit", new { id = Model.CourseId })</p>
-<p>@Html.ActionLink("Delete Course", "Delete", new { id = Model.CourseId })</p>
+<p>@Html.ActionLink("Delete Course", "Delete", new { id = Model.CourseId })</p> 
+            </div>
+        
+   

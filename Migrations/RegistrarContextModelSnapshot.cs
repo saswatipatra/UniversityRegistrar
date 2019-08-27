@@ -24,6 +24,8 @@ namespace UniversityRegistrar.Migrations
 
                     b.Property<int>("CourseNumber");
 
+                    b.Property<string>("Image");
+
                     b.Property<string>("Name");
 
                     b.HasKey("CourseId");
